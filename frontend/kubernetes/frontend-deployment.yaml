@@ -14,12 +14,14 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-docker-repo/frontend:latest
+          image: faizanahmad055/frontend:0.0.1
           ports:
             - containerPort: 80
-          env:
-            - name: API_BASE_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: inventory-config
-                  key: API_BASE_URL
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/config.json
+              subPath: config.json
+      volumes:
+        - name: config-volume
+          configMap:
+            name: inventory-config

@@ -1,4 +1,4 @@
-package io.sytac.controller;
+package io.sytac.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

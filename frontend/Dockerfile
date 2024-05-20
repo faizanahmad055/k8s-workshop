@@ -11,7 +11,7 @@ WORKDIR /usr/share/nginx/html
 COPY index.html .
 
 # Copy the config template
-COPY config.json /etc/nginx/templates/
+# COPY config.json .
 
 # Expose port 80 to the outside world
 EXPOSE 80

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
+  name: backend-deployment
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -21,11 +21,11 @@ spec:
             - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
-                  name: {{ .Release.Name }}-config
+                  name: backend-config
                   key: DB_NAME
           envFrom:
             - secretRef:
-                name: {{ .Release.Name }}-secret
+                name: backend-secret
           resources:
             limits:
               cpu: "1"

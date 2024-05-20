@@ -160,11 +160,11 @@
         .then(config => {
             apiBaseUrl = config.apiBaseUrl;
             version = config.version;
-            document.getElementById('title').innerText = `Inventory Management System v${version}`;
+            document.getElementById('title').innerText = `Inventory Management System ${version}`;
         })
         .catch(error => {
             console.warn('Using default API base URL:', apiBaseUrl);
-            document.getElementById('title').innerText = `Inventory Management System v${version}`;
+            document.getElementById('title').innerText = `Inventory Management System ${version}`;
         });
 
     window.addProduct = function() {

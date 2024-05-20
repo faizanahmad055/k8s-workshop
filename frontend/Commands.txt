@@ -1,0 +1,10 @@
+minikube addons enable ingress
+https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
+
+docker build -t faizanahmad055/backend:0.0.1 -f Dockerfile . --platform="linux/amd64" 
+
+minikube image load faizanahmad055/backend:0.0.1
+
+helm release and rollback
+
+helm install my-backend ./backend-chart -f values-prod.yaml

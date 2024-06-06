@@ -52,6 +52,9 @@ kubectl apply -f frontent/kubernetes -n test
 kubectl port-forward service/frontend 8082:80 -n test
 kubectl port-forward service/backend 8080:8080 -n test
 ```
+To access the frontend go to http://localhost:8082
+To see the metrics, go to http://localhost:8080/actuator/prometheus
+
 
 9. Delete the application
 ```bash
@@ -80,9 +83,10 @@ helm install my-grafana oci://registry-1.docker.io/bitnamicharts/grafana-operato
 kubectl apply -f grafana/datasource.yaml
 ```
 
-14. Port forward Grafana
+14. Port forward Grafana and Prometheus
 ```bash
 kubectl port-forward svc/my-grafana-grafana-operator-grafana-service 3000:3000
+kubectl port-forward svc/my-release-kube-prometheus-prometheus 9090:9090
 ```
 
 15. Get Grafana password
@@ -97,3 +101,15 @@ Go to http://localhost:3000 and use admin as username and password gotten from s
 Go to https://grafana.com/grafana/dashboards/19004-spring-boot-statistics/ and copy the dashboard id
 Go to http://localhost:3000/dashboard/import and paste the dashboard id
 
+
+## Clean up
+```bash
+helm uninstall be -n test
+helm uninstall fe -n test
+helm uninstall my-release
+helm uninstall my-grafana
+kubectl delete namespace test
+```
+
+## References
+- https://www.baeldung.com/micrometer

@@ -10,6 +10,8 @@ WORKDIR /usr/share/nginx/html
 # Copy the HTML file to the container
 COPY index.html .
 
+#COPY nginx.conf /etc/nginx/conf.d/
+
 # Copy the config template
 # COPY config.json .
 

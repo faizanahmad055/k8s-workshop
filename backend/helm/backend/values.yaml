@@ -6,7 +6,7 @@ replicaCount: 2
 
 image:
   repository: faizanahmad055/backend
-  tag: 0.0.1
+  tag: 0.0.2
 
 dbUsername: "sa"
 dbPassword: "password"

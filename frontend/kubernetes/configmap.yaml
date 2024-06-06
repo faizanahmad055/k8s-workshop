@@ -5,6 +5,6 @@ metadata:
 data:
   config.json: |
     {
-      "apiBaseUrl": "http://backend.test.svc.cluster.local:8080/api/products",
+      "apiBaseUrl": "http://your-backend-domain.com:8080/api/products",
       "version": "v2.0.0"
     }

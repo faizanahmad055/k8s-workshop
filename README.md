@@ -7,15 +7,18 @@ This repository contains the sample code needed for workshop
 - Install minikube
 - Install helm
 
-## Steps
-1. Start minikube
-```bash
-minikube start
-```
-
-2. Enable ingress
+1. Enable addons
 ```bash
 minikube addons enable ingress
+minikube addons enable ingress-dns
+minikube addons enable metrics-server
+minikube addons enable dashboard
+```
+
+## Steps
+2. Start minikube
+```bash
+minikube start
 ```
 
 3. Setup local DNS
@@ -80,7 +83,7 @@ helm install my-grafana oci://registry-1.docker.io/bitnamicharts/grafana-operato
 
 13. Add datasource to Grafana
 ```bash
-kubectl apply -f grafana/datasource.yaml
+kubectl apply -f monitoring/Datasource.yml
 ```
 
 14. Port forward Grafana and Prometheus

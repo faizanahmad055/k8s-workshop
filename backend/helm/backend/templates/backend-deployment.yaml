@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: backend
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }} # To force a rolling update even if deployment is not affected
     spec:
       containers:
         - name: backend

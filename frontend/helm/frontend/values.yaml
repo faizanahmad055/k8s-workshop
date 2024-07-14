@@ -5,7 +5,7 @@
 fullnameOverride: "frontend"
 image:
   repository: faizanahmad055/frontend
-  tag: 0.0.4
+  tag: 0.0.1
 
 service:
   type: LoadBalancer
@@ -14,4 +14,4 @@ service:
 
 config:
   backendUrl: "http://your-backend-domain.com:8080/api/products"
-  version: "v2.0.0"
+  version: "v1.0.0"

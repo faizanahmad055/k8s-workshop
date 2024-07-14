@@ -2,10 +2,10 @@
 This repository contains the sample code needed for workshop
 
 ## Pre-requisites
-- Install Docker
-- Install kubectl
-- Install minikube
-- Install helm
+- [Install Docker](https://docs.docker.com/engine/install/)
+- [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#install-with-homebrew-on-macos)
+- [Install minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fhomebrew)
+- [Install helm](https://helm.sh/docs/intro/install/#from-homebrew-macos)
 
 1. Enable addons
 ```bash
@@ -69,6 +69,19 @@ kubectl delete -f frontent/kubernetes -n test
 ```bash
 helm install be backend/helm/backend -n test
 helm install fe frontend/helm/frontend -n test
+```
+Repeat step 8 to access the application
+
+To upgrade the application
+```bash
+helm upgrade --install be backend/helm/backend -n test --set replicaCount=3 #--install is optional and can be used if the release does not exist
+helm upgrade --install fe frontend/helm/frontend -n test --set config.version=v2.0.0
+```
+
+To rollback the application
+```bash
+helm rollback be 1 -n test
+helm rollback fe 1 -n test
 ```
 
 11. Install Prometheus

@@ -114,5 +114,32 @@ helm uninstall my-grafana
 kubectl delete namespace test
 ```
 
+## Backend Curl Commands
+
+### Get all products
+```bash
+curl -X GET 'http://localhost:8080/api/products'
+```
+
+### Get product by id
+```bash
+curl -X GET 'http://localhost:8080/api/products/1'
+```
+
+### Create a product
+```bash
+curl -X POST 'http://localhost:8080/api/products' -H 'Content-Type: application/json' -d '{"name": "Chair", "quantity": 1, "price": 21}'
+```
+
+### Update a product
+```bash
+curl -X PUT 'http://localhost:8080/api/products/1' -H 'Content-Type: application/json' -d '{"name": "Chair", "quantity": 1, "price": 21}'
+```
+
+### Delete a product
+```bash
+curl -X DELETE 'http://localhost:8080/api/products/1'
+```
+
 ## References
 - https://www.baeldung.com/micrometer

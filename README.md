@@ -154,5 +154,17 @@ curl -X PUT 'http://localhost:8080/api/products/1' -H 'Content-Type: application
 curl -X DELETE 'http://localhost:8080/api/products/1'
 ```
 
+## Other useful commands
+```bash
+kubectl scale deployment backend-deployment --replicas=4 -n test
+kubectl rollout history deployment/backend-deployment -n test
+kubectl rollout undo deployment/backend-deployment --to-revision=1 -n test
+kubectl get pods -n test
+kubectl get deployments -n test
+kubectl get services -n test
+kubectl get ingress -n test
+helm dependency update
+```
+
 ## References
 - https://www.baeldung.com/micrometer

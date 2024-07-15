@@ -1,0 +1,17 @@
+# Default values for frontend-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+fullnameOverride: "frontend"
+image:
+  repository: faizanahmad055/frontend
+  tag: 0.0.1
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 80
+
+config:
+  backendUrl: "http://your-backend-domain.com:8080/api/products"
+  version: "v1.0.0"

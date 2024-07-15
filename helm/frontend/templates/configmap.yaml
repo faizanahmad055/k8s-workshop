@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inventory-config
+data:
+  config.json: |
+    {
+      "apiBaseUrl": {{ .Values.config.backendUrl | quote }},
+      "version": {{ .Values.config.version | quote }}
+    }
